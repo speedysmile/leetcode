@@ -29,10 +29,4 @@ public class ReverseInteger {
 		}
 		return result;
 	}
-
-	public static void main(String[] args) {
-		ReverseInteger instance = new ReverseInteger();
-		int num = -2147483648;
-		System.out.println(instance.reverse(num));
-	}
 }
