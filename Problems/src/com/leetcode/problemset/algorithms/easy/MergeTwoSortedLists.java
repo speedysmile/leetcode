@@ -1,5 +1,7 @@
 package com.leetcode.problemset.algorithms.easy;
 
+import com.leetcode.problemset.algorithms.common.ListNode;
+
 /**
  * Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.
  *
@@ -7,6 +9,7 @@ package com.leetcode.problemset.algorithms.easy;
 public class MergeTwoSortedLists {
 
 	/**
+	 * 21. Merge Two Sorted Lists
 	 * 双指针依次插入最小的节点
 	 *
 	 * @param l1 列表1
@@ -46,12 +49,27 @@ public class MergeTwoSortedLists {
 		return head.next;
 	}
 
-
-	public static class ListNode {
-		int val;
-		ListNode next;
-		ListNode() {}
-		ListNode(int val) { this.val = val; }
-		ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+	/**
+	 * 83. Remove Duplicates from Sorted List
+	 * Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+	 *
+	 * @param head list列表
+	 * @return 无重复数据list
+	 */
+	public ListNode deleteDuplicates(ListNode head) {
+		if (head == null) {
+			return null;
+		}
+		ListNode temp = head;
+		int val = head.val;
+		while (temp.next != null) {
+			if (temp.next.val == val) {
+				temp.next = temp.next.next;
+				continue;
+			}
+			val = temp.next.val;
+			temp = temp.next;
+		}
+		return head;
 	}
 }
