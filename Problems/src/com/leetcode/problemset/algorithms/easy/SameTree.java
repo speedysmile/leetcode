@@ -4,7 +4,6 @@ import com.leetcode.problemset.algorithms.common.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 /**
  * Given the roots of two binary trees p and q, write a function to check if they are the same or not.

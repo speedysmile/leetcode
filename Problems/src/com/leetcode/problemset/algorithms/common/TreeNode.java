@@ -1,7 +1,6 @@
 package com.leetcode.problemset.algorithms.common;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class TreeNode {
 	public int val;
@@ -57,5 +56,29 @@ public class TreeNode {
 		System.out.print(root.val + "\t");
 		printTree(root.left);
 		printTree(root.right);
+	}
+
+	public static Integer[] toArray(TreeNode root) {
+		if (root == null) return new Integer[0];
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.offer(root);
+		List<Integer> res = new ArrayList<>();
+		TreeNode node;
+		while (!queue.isEmpty()) {
+			node = queue.poll();
+			if (node != null) {
+				res.add(node.val);
+			} else {
+				res.add(null);
+			}
+			if (node != null && (node.left != null || node.right != null)) {
+				queue.offer(node.left);
+				queue.offer(node.right);
+			}
+		}
+		if (res.get(res.size() - 1) == null) {
+			res.remove(res.size() - 1);
+		}
+		return res.toArray(new Integer[0]);
 	}
 }
